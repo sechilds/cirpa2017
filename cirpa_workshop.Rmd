@@ -19,8 +19,14 @@ That is pretty cool.
 * Loading data (review)
 * Loading survey data
 * descriptive statistics (means, medians, etc.)
+* exploratory data visualization
 * statistical tests
 * the `broom` package - cleaning up results
+* statistical modeling
+* categorical data
+* predictive models/machine learning
+* descriptive models/econometrics
+* outputting results
 
 
 
