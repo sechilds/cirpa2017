@@ -19,7 +19,8 @@ That is pretty cool.
 * Loading data (review)
 * Loading survey data
 * descriptive statistics (means, medians, etc.)
-* exploratory data visualization
+* exploratory data visualization (with `ggplot2`)
+* the R formula language
 * statistical tests
 * the `broom` package - cleaning up results
 * statistical modeling
@@ -27,6 +28,9 @@ That is pretty cool.
 * predictive models/machine learning
 * descriptive models/econometrics
 * outputting results
+
+I want to think about some concept maps for this stuff.
+There are quite a few topics here, and I want to catch them all.
 
 
 
