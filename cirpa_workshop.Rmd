@@ -18,6 +18,7 @@ That is pretty cool.
 
 * Loading data (review)
 * Loading survey data
+* Manipulating survey data - for easier vizualization and analysis.
 * descriptive statistics (means, medians, etc.)
 * exploratory data visualization (with `ggplot2`)
 * the R formula language
@@ -31,6 +32,45 @@ That is pretty cool.
 
 I want to think about some concept maps for this stuff.
 There are quite a few topics here, and I want to catch them all.
+
+### Loading Data
+
+This might be a review of stuff that Evan has talked about.
+
+* reading data from CSV files with `read_csv`
+* reading data from Excel files (ASK EVAN)
+* reading data from SPSS files with `haven`
+
+### Loading Survey Data
+
+Survey data can be a bit of a special case because of the associated metadata around the survey.
+You want to have that metadata, but it can be difficult to process.
+
+I will talk about `haven` and how you can use it to load up SPSS data -- and how you can
+grab things out of the resulting data frame with `labelled`.
+
+### Manipulating Survey Data for Ease of Analysis
+
+I want to talk about how you might use `dplyr` to layout the data in a more efficient way.
+The challenge of this is that it makes the data quite large.
+And I only really want a simple version of this.
+
+I'm not sure I can talk about weights.
+
+### Descriptive Statistics
+
+When you have basic data loaded, you want to get all sorts of descriptive statistics out of there.
+So, there are lots of built in functions that will do that for you.
+
+I want to look at the difference between the base and dplyr functions.
+Actually, the `mean` function you use with `summarise` is the same as the base function.
+That is actually intersting.
+
+```{r}
+library(survey)
+data(api)
+dclus1 <- svydesign(id = ~dnum, weights = ~pw, data = apiclus1, fpc = ~fpc)
+```
 
 
 
