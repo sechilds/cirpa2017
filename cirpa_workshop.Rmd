@@ -66,12 +66,15 @@ I want to look at the difference between the base and dplyr functions.
 Actually, the `mean` function you use with `summarise` is the same as the base function.
 That is actually intersting.
 
-```{r}
-library(survey)
-data(api)
-dclus1 <- svydesign(id = ~dnum, weights = ~pw, data = apiclus1, fpc = ~fpc)
-```
+## Exploratory Data Viz
 
+You want to start out with some simple data vizualization to get a sense of what things look like
+
+```{r}
+df %>%
+  ggplot() + 
+  geom_histogram(aes(x = t1_y1))
+```
 
 
 
