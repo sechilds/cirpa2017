@@ -70,3 +70,51 @@ df %>%
   mutate(freq = freq/sum(freq) * 100) %>%
   filter(enrl1_y2==1) %>%
   select(proi1_y1, freq)
+
+# running some t-tests
+# lets see if there are differences between returners are not
+# so let's put together two different vectors
+
+returners <- df %>%
+  filter(enrl1_y2==1 & !is.na(proi1_y1)) %>%
+  select(proi1_y1)
+
+nonreturners <- df %>%
+  filter(enrl1_y2==2 & !is.na(proi1_y1)) %>%
+  select(proi1_y1)
+
+# so, these are tibbles
+# so lets pop out the individual column
+
+returners <- returners$proi1_y1
+nonreturners <- nonreturners$proi1_y1
+
+# if you try to get the means of these, it doesn't work
+# until you convert them to just vectors.
+mean(returners)
+mean(nonreturners)
+
+t.test(returners, nonreturners)
+
+# you don't need to create separate vectors
+# you can get dplyr to do that for you!!
+# note the use of formula syntax AND
+# the rest of it!
+df %>%
+  filter(!is.na(enrl1_y2) & !is.na(proi1_y1)) %>%
+  t.test(proi1_y1 ~ enrl1_y2, data=.)
+
+# The nice thing about the fact that you can pipe things into t.test
+# is that now you can actually do that for particular groups of
+# your data
+# the problem is -- in order to aggregate the results, you need data frames
+df %>%
+  filter(!is.na(enrl1_y2) & !is.na(proi1_y1)) %>%
+  group_by(x_idregion_y1) %>%
+  do(t.test(proi1_y1 ~ enrl1_y2, data=.))
+
+# that's where the broom package comes in -- it turns your results into a data frame
+df %>%
+  filter(!is.na(enrl1_y2) & !is.na(proi1_y1)) %>%
+  group_by(x_idregion_y1) %>%
+  do(broom::tidy(t.test(proi1_y1 ~ enrl1_y2, data=.)))
