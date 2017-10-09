@@ -66,9 +66,11 @@ I want to look at the difference between the base and dplyr functions.
 Actually, the `mean` function you use with `summarise` is the same as the base function.
 That is actually intersting.
 
+One issue with survey data, and the likert scales that we generally use -- is that we tend to think of these things as numbers when they aren't really.
+
 ## Exploratory Data Viz
 
-You want to start out with some simple data vizualization to get a sense of what things look like
+You want to start out with some simple data vizualization to get a sense of what things look like. We can plot histograms or do kernel density plots.
 
 ```{r}
 df %>%
@@ -76,7 +78,70 @@ df %>%
   geom_histogram(aes(x = t1_y1))
 ```
 
+## the R formula language
 
+The R formula language is a standard part of R, and it is used to specify equations and even subsetting graphs and statistical tests.
+
+## statistical tests
+
+Since R was designed by statisticians, it has all of these tests built into the base R language.
+
+## Cleaning Up Results
+
+In this section, we will discuss deploying the `broom` package to clean up the results of statistical tests. This is especially useful for running large numbers of statistical tests and putting the results into a DataFrame.
+
+Test the difference between two groups.
+Determine if something is significantly different from zero.
+We will just explain the high level of this, I think.
+A few examples will be instructive.
+
+## statistical modeling
+
+Now that we have dome some basic statistical tests, the next step is to build models.
+Statistical models are, at their core, just an equation that we are trying to fit to the data.
+We try to describe the relationships between different variables using match - the functional form.
+Then we figure out what the parameters of those models are.
+
+## categorical data
+
+The standard OLS (Ordinary Least Squares) model is set up to model a linear relationship between variables.
+We take that linear relationship, and the slope of the line gives us the realtionship.
+We can standardize the variables, so that slope represents the rate of change in one variable with respect to another.
+(This calculus insight is useful for the marginal effects bit as well.
+You want to put these things in terms of percentage change.)
+
+The difficulty of categorical data is that the categories are _discrete_,
+so there isn't really a rate of change, but rather a jump as you move between two categories.
+
+If you think of the simple linear model: y = a + Bx
+the slope is what you are generally measuring. (B)
+But, if you have two groups in the model - say students at two different campuses:
+
+y = a + B1x if campus 1
+  = a + B1x + B2 if campus 2
+  
+That means the intercept for campus2 is (a + B2) - so the linear model shifts up or down the graph.
+You can think of the difference in the intercepts (B2) as capturing the difference in outcome between the two groups.
+
+Of course, it's not quite that simple.
+We are making some assumptions when we set up a model like that.
+If we leave out important variables that are different between the two groups,
+we might actually be capturing the difference between other things.
+For example, if the students one one campus are older than the other,
+we might be capturing the effects of that.
+
+Another reason why it is important to graph this data before setting up the model.
+And why you can get results out quickly with R,
+but you should take your time and know aobut your data before making your analysis.
+
+## Predictive Models/Machine Learning
+
+R is widely used in the machine learning community.
+And support for these kind of models is built right in.
+
+
+## descriptive models/econometrics
+## outputting results
 
 
 
