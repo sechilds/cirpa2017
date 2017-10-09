@@ -27,6 +27,7 @@ That is pretty cool.
 * statistical modeling
 * categorical data
 * predictive models/machine learning
+* ethics of algorithms
 * descriptive models/econometrics
 * outputting results
 
@@ -139,9 +140,54 @@ but you should take your time and know aobut your data before making your analys
 R is widely used in the machine learning community.
 And support for these kind of models is built right in.
 
+Predictive models take the equations we talked about earlier and let you plug new values into them.
+Then you can use the outcomes that you calculate from that model to make predictions aobut individual observations that you have data on.
 
-## descriptive models/econometrics
+In the press this is sometimes called Artificial Intelligence (AI),
+but practitioners generally refer to it as Machine Learning.
+That name sounds impressive, but we are really teaching the computer with models.
+
+Now, there are fancy techniques in machine learning (neural networks, etc.) that get used for lots of really cool things (image recognition, speach recognition, etc.)
+But at their heart, they are basically doing the same thing as we are with the models we use here.
+Some of these models are just taking advantage of a lot more data.
+
+One of the key things to understand this domain is that just about anything can be turned into a number!
+Images, sound or even text.
+
+Talking about training and test data -- how you fit models and then evaluate them.
+
+## Ethics of Algorithms
+
+As our world beings to be ruled more and more by algorithms,
+we need to take seriously how we implement them.
+We want to use them to support our students and help them succeed,
+not unfairly discriminate against them.
+
+## Descriptive Models/Econometrics
+
+The other way to use models is to try to draw general observations about the "world" from them.
+In this use of models, we aren't as interested in individual predictions, but rather at higher levels.
+
+This lets us ask questions about things relate to each other.
+Depending on our audience, these can be very general things or specific to our institution.
+
+The problematique and then turning that into a research question.
+
+This fits into IR in several ways.
+First of all, we are interested in overall relationships between (say) student characteristics at the high level.
+So it's worth it to understand that there is a relationship between high school grades and student retention.
+But we might also want to use that information to look at outcomes across our institutions.
+Say, if we observe different retention rates across facuilties,
+does the same issue hold when we take high school grades into account.
+(e.g. is retention in faculty A better than B because A is highly competitive to get into and we are only admitting students with higher grades?)
+
+This is where the theory comes in,
+you need to understand what you are doing before you just apply these models.
+
 ## outputting results
+
+Broom will tidy up things for you.
+There are also some R packages that will output reslts nicely.
 
 
 
