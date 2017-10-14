@@ -9,6 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(tidyverse)
+library(haven)
+library(labelled)
+library(readxl)
+library(modelr)
 ```
 
 # CIRPA 2017 Workshop
@@ -41,8 +45,13 @@ There are quite a few topics here, and I want to catch them all.
 This might be a review of stuff that Evan has talked about.
 
 * reading data from CSV files with `read_csv`
-* reading data from Excel files (ASK EVAN)
+* reading data from Excel files (ASK EVAN) - try the `readxl` package
 * reading data from SPSS files with `haven`
+
+```{r}
+rdm_survey <- read_xlsx('data/uOttawa_RDM_Survey_Data_Anonymized.xlsx')
+```
+
 
 ### Loading Survey Data
 
@@ -51,6 +60,29 @@ You want to have that metadata, but it can be difficult to process.
 
 I will talk about `haven` and how you can use it to load up SPSS data -- and how you can
 grab things out of the resulting data frame with `labelled`.
+
+```{r}
+# NSSE Sample Data
+nsse <- read_sav('data/NSSE17 Data (Canadian Institution).sav')
+nsse
+```
+
+This sample NSSE data is in the same format as you would download your own data.
+You will want to extract the questions from there -- since they are included as part of the SPSS file.
+
+```{r}
+# you can get a data frame pretty easily -- use as.data.frame and then gather it.
+# you will get a warning that you are throwing away data
+as.data.frame(var_label(nsse)) %>% gather()
+```
+
+```{r}
+nsse$askquest
+```
+
+```{r}
+mesa <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv')
+```
 
 ### Manipulating Survey Data for Ease of Analysis
 
@@ -84,6 +116,18 @@ df %>%
 ## the R formula language
 
 The R formula language is a standard part of R, and it is used to specify equations and even subsetting graphs and statistical tests.
+
+It lets you write out model equations the way you would write them mathematically.
+You can use the `model_matrix()` function to see what they are doing.
+
+The `model_matrix()` function is a part of the `modelr` package and is a wrapper around
+`model.matrix()`. Basically, so it works better with the tidyverse.
+
+```{r}
+model_matrix(mesa, )
+
+```
+
 
 ## statistical tests
 
@@ -199,10 +243,16 @@ You want to put these things in terms of percentage change.)
 The difficulty of categorical data is that the categories are _discrete_,
 so there isn't really a rate of change, but rather a jump as you move between two categories.
 
-If you think of the simple linear model: y = a + Bx
-the slope is what you are generally measuring. (B)
+If you think of the simple linear model: \( y = \alpha + \beta x \)
+the slope is what you are generally measuring. (\(\beta\))
 But, if you have two groups in the model - say students at two different campuses:
 
+\(
+  \begin{align}
+  y = \alpha + \beta _1 x & \textnormal{if} c = 1) \\
+  y = \alpha + \beta _1 x + \beta _2 & \textnormal{if} c = 2)
+  \end{align}
+\)
 y = a + B1x if campus 1
   = a + B1x + B2 if campus 2
   
@@ -274,7 +324,9 @@ you need to understand what you are doing before you just apply these models.
 Broom will tidy up things for you.
 There are also some R packages that will output reslts nicely.
 
+You can use `broom` to tidy up the coefficients and then print out the models using `kable`.
 
+There are other regression table formats that spit out LaTeX, which is probably beyond the scope of the workshop.
 
 
 
