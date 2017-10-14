@@ -124,8 +124,22 @@ ggplot(data.frame(x = c(-0,1)), aes(x)) + stat_function(fun = qnorm)
 
 ```{r}
 # normal distribution - random values
-rnorm(1000) %>%
-ggplot() +
+x = rnorm(1000)
+#hist(x)
+#qplot(x, geom="histogram")
+ggplot(data = tibble(x = x), aes(x = x)) + geom_histogram()
+```
+
+```{r}
+# you can also get the density values and plot them
+d <- density(x)
+plot(d)
+```
+
+```{r}
+# same plot using ggplot2
+ggplot(data = tibble(x = x), aes(x = x)) + geom_density()
+```
   
 
 ## T-Distribution
