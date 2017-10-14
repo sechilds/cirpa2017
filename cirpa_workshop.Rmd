@@ -7,6 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(tidyverse)
 ```
 
 # CIRPA 2017 Workshop
@@ -87,6 +89,75 @@ The R formula language is a standard part of R, and it is used to specify equati
 
 Since R was designed by statisticians, it has all of these tests built into the base R language.
 
+A statistical test is getting at the idea that we want to see how likely that a particular result that we see could happen at random.
+For example, if we are comparing two means (say NSSE scores between two universities),
+we can look at which number is bigger and say that institution did better.
+But, we also want to see how likely it was that one was higher than the other randomly.
+
+Comparing something from a survey isn't like comparing, say, total grant funding.
+In the survey we are working with an estimate based on a sample of the population.
+With accounting numbers, we can just do the comparison.
+
+Statistical tests are based on probability distributions and they let us tell if the differences we see are more likely to be related to the sample than the actual differences.
+
+R was designed by statisticians, and so has an advantage in that all the probability distributions are built into the language. 
+
+There is a list at this site: [http://www.stat.umn.edu/geyer/old/5101/rlook.html](http://www.stat.umn.edu/geyer/old/5101/rlook.html)
+
+Each distribution has four functions that you can use for distribution.
+
+## Normal Distribution
+```{r}
+# normal distribution - density plot
+ggplot(data.frame(x = c(-2,2)), aes(x)) + stat_function(fun = dnorm)
+```
+
+```{r}
+# normal distribution - cdf plot
+ggplot(data.frame(x = c(-2,2)), aes(x)) + stat_function(fun = pnorm)
+```
+
+```{r}
+# normal distribution - inverse cdf plot
+ggplot(data.frame(x = c(-0,1)), aes(x)) + stat_function(fun = qnorm)
+```
+
+```{r}
+# normal distribution - random values
+rnorm(1000) %>%
+ggplot() +
+  
+
+## T-Distribution
+```{r}
+# t distribution
+ggplot(data.frame(x = c(-2,2)), aes(x)) + stat_function(fun = dt, args = list(df = 4000))
+```
+
+```{r}
+ggplot(data.frame(x = c(-2,2)), aes(x)) + stat_function(fun = dt, args = list(df = 30)) +   stat_function(fun = dnorm, color = 'red')
+```
+
+```{r}
+# Chi Squared df=7 and .95 area highlighted.
+ggplot(data.frame(x = c(0,20)), aes(x)) +
+  stat_function(fun = dchisq, args = list(df=7)) +
+  stat_function(fun = dchisq, args = list(df=7),
+                xlim = c(qchisq(.95, df=7),20),
+                geom = 'area')
+```
+
+```{r}
+# T-Distribution df=7 and .95 area highlighted.
+ggplot(data.frame(x = c(-5,5)), aes(x)) +
+  stat_function(fun = dt, args = list(df=5)) +
+  stat_function(fun = dt, args = list(df=5),
+                xlim = c(qt(.95, df=5),5),
+                geom = 'area') +
+  stat_function(fun = dt, args = list(df=5),
+                xlim = c(-5, -qt(.95, df=5)),
+                geom = 'area')
+```
 ## Cleaning Up Results
 
 In this section, we will discuss deploying the `broom` package to clean up the results of statistical tests. This is especially useful for running large numbers of statistical tests and putting the results into a DataFrame.
