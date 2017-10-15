@@ -10,9 +10,17 @@ agree_disagree = c(`Strongly Disagree` = 1,
                    `Strongly Agree` = 5,
                    `No Opinion` = 6,
                    `Refused` = 7)
+df <- df %>% set_variable_labels(x_id = "Survey ID",
+                      sib2_y2 = "Have any of these brothers or sisters attended university or community college?")
 
-df <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv') %>%
-  set_variable_labels(x_id = "Survey ID",
+df <- df %>% set_variable_labels(x_id = "Survey ID",
+                      sib1_y1 = "How many brothers and sisters do you have that are older or the same age as you? Include half-, step- and adoptive brothers and sisters",
+                      sib2_y2 = "Have any of these brothers or sisters attended university or community college?",
+                      sib3_y1 = "How many brothers and sisters do you have that are younger than you? Include half-, step and adoptive brothers and sisters",
+                      par1_y1 = "Who were the parents or guardians that you lived with MOST of the time during HIGH SCHOOL? Was it")
+
+df <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv')
+df <- df %>% set_variable_labels(x_id = "Survey ID",
                       cit1_y1 = "Are you a Canadian citizen?",
                       cit2_y1 = "Are you a laanded immigrant?",
                       ori1_y1 = "In what country were you born?",
@@ -20,9 +28,9 @@ df <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv') %>%
                       eth1_y1 = "People in Canada come from many different cultural or racial backgrounds. Could yo udescribe your background:",
                       lang1_y1 = "What language do you speak when you are at home with your parents?",
                       sib1_y1 = "How many brothers and sisters do you have that are older or the same age as you? Include half-, step- and adoptive brothers and sisters",
-                      sib2_y2 = "Have any of these brothers or sisters attended university or community college?",
+                      sib2_y1 = "Have any of these brothers or sisters attended university or community college?",
                       sib3_y1 = "How many brothers and sisters do you have that are younger than you? Include half-, step and adoptive brothers and sisters",
-                      par1_y1 = "Who were the parents or guardians that you lived with MOST of the time during HIGH SCHOOL? Was it"
+                      par1_y1 = "Who were the parents or guardians that you lived with MOST of the time during HIGH SCHOOL? Was it",
                       par2_y1 = "You indicated that you mostly lived with just one of your parents during high school. How frequently did you have contact with your other parent?",
                       paed1_y1 = "What was the highest level of education completed by your female guardian?",
                       paed2_y1 = "What was the highest level of education completed by your male guardian?",
@@ -35,7 +43,7 @@ df <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv') %>%
                       proi6_y1 = "People would be better off putting their money into investments like real estate and the stock market than bothering with a PSE",
                       proi7_y1 = "You can learn enough about the real world without a PSE",
                       proi8_y1 = "Good jobs can be found without a PSE") %>%
-  set_value_labels(proi1_y1 = agree_disagree,
+  add_value_labels(proi1_y1 = agree_disagree,
                    proi2_y1 = agree_disagree,
                    proi3_y1 = agree_disagree,
                    proi4_y1 = agree_disagree,
@@ -43,9 +51,33 @@ df <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv') %>%
                    proi6_y1 = agree_disagree,
                    proi7_y1 = agree_disagree)
 
+df %>% mutate(proi_scale = proi1_y1 +
+                proi2_y1 +
+                proi3_y1 +
+                proi4_y1 +
+                (6 - proi5_y1) +
+                (6 - proi6_y1) +
+                (6 - proi7_y1) +
+                (6 - proi8_y1)) %>%
+  select(proi_scale) %>%
+  summary()
 
+df <- df %>% mutate(proi_scale = proi1_y1 +
+                proi2_y1 +
+                proi3_y1 +
+                proi4_y1 +
+                (6 - proi5_y1) +
+                (6 - proi6_y1) +
+                (6 - proi7_y1) +
+                (6 - proi8_y1))
 
-#list the columns in the data frame
+model_matrix(df, enrl1_y2 ~ proi_scale)
+model_matrix(df, ~as_factor(proi1_y1))
+mod1 <- lm(enrl1_y2 ~ as_factor(proi1_y1), data=df)
+summary(mod1)
+broom::tidy(mod1)
+
+list the columns in the data frame
 spec(df)
 
 # have a look at the data for a categorical variable.
