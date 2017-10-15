@@ -87,10 +87,28 @@ mesa <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv')
 ### Manipulating Survey Data for Ease of Analysis
 
 I want to talk about how you might use `dplyr` to layout the data in a more efficient way.
+the `tidyr` functions `gather` and `spread` are very useful for this.
 The challenge of this is that it makes the data quite large.
 And I only really want a simple version of this.
 
 I'm not sure I can talk about weights.
+
+I have that short sample NSSE file, so I will use that to talk about survey data manipulation.
+Becuase that has nice labeled values -- and you want to grab all of that data.
+
+Survey data can be a pain to work with because it contains a lot of meta data:
+
+* full question text
+* other text that provides context for a question
+* question number (order of questions in a survey)
+* question section and subsection
+* variable labels (what the numeric responses actually mean.)
+
+The problem is that you need some of these items to do your analysis
+and other items to do the presentation of that analysis.
+
+I propose constructing a large dataset consisting of several talbes made to be joined together.
+If you have access to a database, you might want to use that.
 
 ### Descriptive Statistics
 
