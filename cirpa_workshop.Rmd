@@ -73,7 +73,11 @@ You will want to extract the questions from there -- since they are included as 
 ```{r}
 # you can get a data frame pretty easily -- use as.data.frame and then gather it.
 # you will get a warning that you are throwing away data
-as.data.frame(var_label(nsse)) %>% gather()
+#as.data.frame(var_label(nsse)) %>% gather()
+nsse %>%
+  var_label() %>%
+  as_tibble() %>%
+  gather(field_name, question_text)
 ```
 
 ```{r}
