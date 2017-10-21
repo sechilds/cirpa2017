@@ -117,7 +117,7 @@ df_clean <- df %>% set_variable_labels(x_id = "Survey ID",
                       ad_cag1 = "Canada Access Grant Status",
                       ad_loan2 = "Bursary loan remission",
                       ad_bursary1 = "Bursary cash award",
-                      ad_loan3 = "Loan amount minus loan reduction"
+                      ad_loan3 = "Loan amount minus loan reduction",
                       ad_award3 = "Total award minus loan reduction",
                       enrl1_y2 = "Are you still enrolled in college or university (year 2)") %>%
   add_value_labels(proi1_y1 = agree_disagree,
@@ -127,9 +127,11 @@ df_clean <- df %>% set_variable_labels(x_id = "Survey ID",
                    proi5_y1 = agree_disagree,
                    proi6_y1 = agree_disagree,
                    proi7_y1 = agree_disagree,
+                   proi8_y1 = agree_disagree,
                    inf1_y1 = agree_disagree,
                    inf2_y1 = agree_disagree,
                    inf3_y1 = agree_disagree) %>%
+  mutate(link2_y1 = ifelse(is.na(link2_y1), 1, link2_y1)) %>%
   filter(link2_y1!=2) %>%
   filter(enrl1_y1==1) %>%
   filter(!is.na(enrl1_y2)) %>%
@@ -154,6 +156,9 @@ df_clean <- df_clean %>% mutate(proi_scale = proi1_y1 +
                 (6 - proi6_y1) +
                 (6 - proi7_y1) +
                 (6 - proi8_y1))
+
+
+vis_dat(df_clean)
 
 model_matrix(df, enrl1_y2 ~ proi_scale)
 model_matrix(df, ~as_factor(proi1_y1))
