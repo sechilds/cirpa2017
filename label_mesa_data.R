@@ -3,6 +3,51 @@ library(labelled)
 
 # work through and label the data from the mesa project
 
+# list of useful variables for the workshop
+workshop_vars = c('x_id',
+                  'x_idregion_y1',
+                  'proi1_y1',
+                  'proi2_y1',
+                  'proi3_y1',
+                  'proi4_y1',
+                  'proi5_y1',
+                  'proi6_y1',
+                  'proi7_y1',
+                  'proi8_y1',
+                  'inf1_y1',
+                  'inf2_y1',
+                  'inf3_y1',
+                  'enrl1_y1',
+                  'enrl_epi',
+                  'enrl_epi2',
+                  'ad_age',
+                  'ad_gender',
+                  'ad_field',
+                  'ad_inst1',
+                  'ad_need1',
+                  'ad_need2',
+                  'ad_inc1',
+                  'ad_inc2',
+                  'ad_award1',
+                  'ad_award2',
+                  'ad_unmet1',
+                  'ad_unmet2',
+                  'ad_inc3',
+                  'ad_inc4',
+                  'ad_loan1',
+                  'ad_grant1',
+                  'ad_asset1',
+                  'ad_tuition1',
+                  'ad_recip1',
+                  'ad_ncb1',
+                  'ad_cag1',
+                  'ad_loan2',
+                  'ad_bursary1',
+                  'ad_loan3',
+                  'ad_award3',
+                  'enrl1_y2'
+                  )
+
 agree_disagree = c(`Strongly Disagree` = 1,
                    `Somewhat Disagree` = 2,
                    `Neutral` = 3,
@@ -191,3 +236,7 @@ df %>%
   filter(!is.na(enrl1_y2) & !is.na(proi1_y1)) %>%
   group_by(x_idregion_y1) %>%
   do(broom::tidy(t.test(proi1_y1 ~ enrl1_y2, data=.)))
+
+df %>%
+  filter(enrl1_y1==1 & !is.na(enrl1_y2)) %>%
+  dim()
