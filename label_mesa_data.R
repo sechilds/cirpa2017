@@ -77,7 +77,7 @@ mod1 <- lm(enrl1_y2 ~ as_factor(proi1_y1), data=df)
 summary(mod1)
 broom::tidy(mod1)
 
-list the columns in the data frame
+#list the columns in the data frame
 spec(df)
 
 # have a look at the data for a categorical variable.
