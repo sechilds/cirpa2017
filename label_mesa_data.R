@@ -55,6 +55,21 @@ agree_disagree = c(`Strongly Disagree` = 1,
                    `Strongly Agree` = 5,
                    `No Opinion` = 6,
                    `Refused` = 7)
+
+provinces = c(`Newfoundland and Labrador` = 10,
+              `Prince Edward Island` = 11,
+              `Nova Scotia` = 12,
+              `New Brunswick` = 13,
+              `Quebec` = 24,
+              `Ontario` = 35,
+              `Manitoba` = 46,
+              `Saskatchewan` = 47,
+              `Alberta` = 48,
+              `British Columbia` = 59,
+              `Yukon` = 60,
+              `Northwest Territories` = 61,
+              `Nunavut` = 62)
+
 df <- df %>% set_variable_labels(x_id = "Survey ID",
                       sib2_y2 = "Have any of these brothers or sisters attended university or community college?")
 
@@ -130,7 +145,8 @@ df_clean <- df %>% set_variable_labels(x_id = "Survey ID",
                    proi8_y1 = agree_disagree,
                    inf1_y1 = agree_disagree,
                    inf2_y1 = agree_disagree,
-                   inf3_y1 = agree_disagree) %>%
+                   inf3_y1 = agree_disagree,
+                   x_idregion_y1 = provinces) %>%
   mutate(link2_y1 = ifelse(is.na(link2_y1), 1, link2_y1)) %>%
   filter(link2_y1!=2) %>%
   filter(enrl1_y1==1) %>%
