@@ -65,7 +65,7 @@ df <- df %>% set_variable_labels(x_id = "Survey ID",
                       par1_y1 = "Who were the parents or guardians that you lived with MOST of the time during HIGH SCHOOL? Was it")
 
 df <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv')
-df <- df %>% set_variable_labels(x_id = "Survey ID",
+df_clean <- df %>% set_variable_labels(x_id = "Survey ID",
                       cit1_y1 = "Are you a Canadian citizen?",
                       cit2_y1 = "Are you a laanded immigrant?",
                       ori1_y1 = "In what country were you born?",
@@ -87,14 +87,53 @@ df <- df %>% set_variable_labels(x_id = "Survey ID",
                       proi5_y1 = "I'm not sure that a PSE would pay off even in the long run, given how costly it is these days.",
                       proi6_y1 = "People would be better off putting their money into investments like real estate and the stock market than bothering with a PSE",
                       proi7_y1 = "You can learn enough about the real world without a PSE",
-                      proi8_y1 = "Good jobs can be found without a PSE") %>%
+                      proi8_y1 = "Good jobs can be found without a PSE",
+                      inf1_y1 = "Most of my friends think it's important to get PSE",
+                      inf2_y1 = "My parents would be very disappointed in my if I didn't get a university or college degree",
+                      inf3_y1 = "I have role models at home or at school that reprsent where I hope to go in my career based on my schooling",
+                      enrl1_y1 = "Are you still enrolled in College or University?",
+                      enrl_epi = "CIP Program Code",
+                      enrl_epi2 = "Two Digit CIP Code",
+                      ad_age = "Age",
+                      ad_gender = "Gender",
+                      ad_field = "Field of Study",
+                      ad_inst1 = "Institution Code",
+                      ad_need1 = "Value of Assessed Need",
+                      ad_need2 = "Assessed Need - Total Millenium Bursary",
+                      ad_inc1 = "Spousal Income",
+                      ad_inc2 = "Parental Income",
+                      ad_award1 = "Total Student Aid",
+                      ad_award2 = "Total Aid with Bursary",
+                      ad_unmet1 = "Unmet Need",
+                      ad_unmet2 = "Unmet Need with Bursary",
+                      ad_inc3 = "Reported Previous Year Income",
+                      ad_inc4 = "Expected Work Income",
+                      ad_loan1 = "Loan Amount",
+                      ad_grant1 = "Grant Amount",
+                      ad_asset1 = "Student Assets",
+                      ad_tuition1 = "Tuition",
+                      ad_recip1 = "Recipient status",
+                      ad_ncb1 = "National Child Benefit",
+                      ad_cag1 = "Canada Access Grant Status",
+                      ad_loan2 = "Bursary loan remission",
+                      ad_bursary1 = "Bursary cash award",
+                      ad_loan3 = "Loan amount minus loan reduction"
+                      ad_award3 = "Total award minus loan reduction",
+                      enrl1_y2 = "Are you still enrolled in college or university (year 2)") %>%
   add_value_labels(proi1_y1 = agree_disagree,
                    proi2_y1 = agree_disagree,
                    proi3_y1 = agree_disagree,
                    proi4_y1 = agree_disagree,
                    proi5_y1 = agree_disagree,
                    proi6_y1 = agree_disagree,
-                   proi7_y1 = agree_disagree)
+                   proi7_y1 = agree_disagree,
+                   inf1_y1 = agree_disagree,
+                   inf2_y1 = agree_disagree,
+                   inf3_y1 = agree_disagree) %>%
+  filter(link2_y1!=2) %>%
+  filter(enrl1_y1==1) %>%
+  filter(!is.na(enrl1_y2)) %>%
+  select(one_of(workshop_vars))
 
 df %>% mutate(proi_scale = proi1_y1 +
                 proi2_y1 +
@@ -107,7 +146,7 @@ df %>% mutate(proi_scale = proi1_y1 +
   select(proi_scale) %>%
   summary()
 
-df <- df %>% mutate(proi_scale = proi1_y1 +
+df_clean <- df_clean %>% mutate(proi_scale = proi1_y1 +
                 proi2_y1 +
                 proi3_y1 +
                 proi4_y1 +
