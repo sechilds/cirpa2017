@@ -72,7 +72,7 @@ provinces = c(`Newfoundland and Labrador` = 10,
 
 gender_lbl = c(`Female` = 0, `Male` = 1)
 
-df <- read_csv('data/cmsf-mesa-E-2005-08_F1.csv')
+df <- read_csv('data/cmsf-mesa-E-2005-08_F1.zip')
 df_clean <- df %>% set_variable_labels(x_id = "Survey ID",
                       cit1_y1 = "Are you a Canadian citizen?",
                       cit2_y1 = "Are you a laanded immigrant?",
