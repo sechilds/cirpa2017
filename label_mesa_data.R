@@ -174,7 +174,8 @@ df_clean <- df_clean %>% mutate(proi_scale = proi1_y1 +
                 (6 - proi5_y1) +
                 (6 - proi6_y1) +
                 (6 - proi7_y1) +
-                (6 - proi8_y1))
+                (6 - proi8_y1)) %>%
+  set_variable_labels(proi_scale = NULL)
 
 
 vis_dat(df_clean)
@@ -206,6 +207,11 @@ model_matrix(df, ~as_factor(proi1_y1))
 mod1 <- lm(enrl1_y2 ~ as_factor(proi1_y1), data=inf_factor)
 summary(mod1)
 broom::tidy(mod1)
+
+mod1 <- df_clean %>%
+  mutate_if(is.labelled, as_factor) %>%
+  lm(enrl1_y2 ~ ad_gender + proi_scale + x_idregion_y1, data=.)
+summary(mod1)
 
 #list the columns in the data frame
 spec(df)
