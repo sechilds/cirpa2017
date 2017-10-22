@@ -70,6 +70,8 @@ provinces = c(`Newfoundland and Labrador` = 10,
               `Northwest Territories` = 61,
               `Nunavut` = 62)
 
+gender_lbl = c(`Female` = 0, `Male` = 1)
+
 df <- df %>% set_variable_labels(x_id = "Survey ID",
                       sib2_y2 = "Have any of these brothers or sisters attended university or community college?")
 
@@ -146,7 +148,8 @@ df_clean <- df %>% set_variable_labels(x_id = "Survey ID",
                    inf1_y1 = agree_disagree,
                    inf2_y1 = agree_disagree,
                    inf3_y1 = agree_disagree,
-                   x_idregion_y1 = provinces) %>%
+                   x_idregion_y1 = provinces,
+                   ad_gender = gender_lbl) %>%
   mutate(link2_y1 = ifelse(is.na(link2_y1), 1, link2_y1)) %>%
   filter(link2_y1!=2) %>%
   filter(enrl1_y1==1) %>%
@@ -176,9 +179,31 @@ df_clean <- df_clean %>% mutate(proi_scale = proi1_y1 +
 
 vis_dat(df_clean)
 
+df_clean %>%
+  group_by(enrl1_y2) %>%
+  tally()
+
+df_clean %>%
+  select(matches("inf[123]._y1"))
+
+df_clean %>%
+  mutate_at(matches("inf[123]{1}_y1"), as_factor)
+
+df_clean %>%
+  mutate_at(vars(matches("inf[123]{1}_y1")), as_factor) %>%
+  model_matrix(enrl1_y1 ~ proi_scale + inf1_y1)
+
+df_clean %>%
+  mutate_at(vars(matches("inf[123]{1}_y1")), as_factor) %>%
+  model_matrix(enrl1_y1 ~ proi_scale + inf1_y1)
+model_matrix(df_clean, enrl1_y2 ~ proi_scale + as_factor(inf1_y1))
+
+inf_factor <- df_clean %>%
+  mutate_at(vars(matches("inf[123]{1}_y1")), as_factor)
+
 model_matrix(df, enrl1_y2 ~ proi_scale)
 model_matrix(df, ~as_factor(proi1_y1))
-mod1 <- lm(enrl1_y2 ~ as_factor(proi1_y1), data=df)
+mod1 <- lm(enrl1_y2 ~ as_factor(proi1_y1), data=inf_factor)
 summary(mod1)
 broom::tidy(mod1)
 
