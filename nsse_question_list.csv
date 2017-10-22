@@ -1,0 +1,206 @@
+field_name,question_text
+askquest,Asked questions or contributed to course discussions in other ways
+drafts,Prepared two or more drafts of a paper or assignment before turning it in
+unprepared,Come to class without completing readings or assignments
+unpreparedr,Reverse code of the variable unprepared
+attendart,"Attended an art exhibit, play, or other arts performance (dance, music, etc.)"
+CLaskhelp,Asked another student to help you understand course material
+CLexplain,Explained course material to one or more students
+CLstudy,Prepared for exams by discussing or working through course material with other students
+CLproject,Worked with other students on course projects or assignments
+present,Given a course presentation
+RIintegrate,Combined ideas from different courses when completing assignments
+RIsocietal,Connected your learning to societal problems or issues
+RIdiverse,"Included diverse perspectives (political, religious, racial/ethnic, gender, etc.) in course discussions or assignments"
+RIownview,Examined the strengths and weaknesses of your own views on a topic or issue
+RIperspect,Tried to better understand someone else's views by imagining how an issue looks from their perspective
+RInewview,Learned something that changed the way you understand an issue or concept
+RIconnect,Connected ideas from your courses to your prior experiences and knowledge
+SFcareer,Talked about career plans with a faculty member
+SFotherwork,"Worked with a faculty member on activities other than coursework (committees, student groups, etc.)"
+SFdiscuss,"Discussed course topics, ideas, or concepts with a faculty member outside of class"
+SFperform,Discussed your academic performance with a faculty member
+memorize,Coursework emphasized: Memorizing course material
+HOapply,"Coursework emphasized: Applying facts, theories, or methods to practical problems or new situations"
+HOanalyze,"Coursework emphasized: Analyzing an idea, experience, or line of reasoning in depth by examining its parts"
+HOevaluate,"Coursework emphasized: Evaluating a point of view, decision, or information source"
+HOform,Coursework emphasized: Forming a new idea or understanding from various pieces of information
+ETgoals,Instructors: Clearly explained course goals and requirements
+ETorganize,Instructors: Taught course sessions in an organized way
+ETexample,Instructors: Used examples or illustrations to explain difficult points
+ETdraftfb,Instructors: Provided feedback on a draft or work in progress
+ETfeedback,Instructors: Provided prompt and detailed feedback on tests or completed assignments
+QRconclude,"Reached conclusions based on your own analysis of numerical information (numbers, graphs, statistics, etc.)"
+QRproblem,"Used numerical information to examine a real-world problem or issue (unemployment, climate change, public health, etc.)"
+QRevaluate,Evaluated what others have concluded from numerical information
+wrshort,Number of written papers or reports: Up to 5 pages
+wrmed,Number of written papers or reports: Between 6 and 10 pages
+wrlong,Number of written papers or reports: 11 pages or more
+wrshortnum,"Estimated number of assigned papers, reports, etc., up to 5 pages (NSSE recode)"
+wrmednum,"Estimated number of assigned papers, reports, etc., between 6 and 10 pages (NSSE recode)"
+wrlongnum,"Estimated number of assigned papers, reports, etc., 11 pages or more (NSSE recode)"
+wrpages,"Estimated pages of assigned writing, recoded and summed by NSSE from wrshort, wrmed, and wrlong using the midpoints of response ranges and an estimate for unbounded options"
+DDrace,Had discussions with people of a race or ethnicity other than your own
+DDeconomic,Had discussions with people from an economic background other than your own
+DDreligion,Had discussions with people with religious beliefs other than your own
+DDpolitical,Had discussions with people with political views other than your own
+LSreading,Identified key information from reading assignments
+LSnotes,Reviewed your notes after class
+LSsummary,Summarized what you learned in class or from course materials
+challenge,To what extent have your courses challenged you to do your best work?
+intern,"Internship, co-op, field experience, student teaching, or clinical placement"
+leader,Formal leadership role in a student organization or group
+learncom,Learning community or some other formal program where groups of students take two or more classes together
+abroad,Study abroad program
+research,Work with a faculty member on a research project
+capstone,"Culminating senior experience (capstone course, senior project or thesis, comprehensive exam, portfolio, etc.)"
+servcourse,About how many of your courses at this institution have included a community-based project (service-learning)?
+HIPsumFY,"Number of high-impact practices for first-year students marked 'Done or in progress' (learncom, research) or 'All, Most, or Some' (servcourse)"
+HIPsumSR,"Number of high-impact practices for seniors marked 'Done or in progress' (learncom, research, intern, abroad, and capstone) or 'All, Most, or Some' (servcourse)"
+QIstudent,Quality of interactions with students
+QIadvisor,Quality of interactions with academic advisors
+QIfaculty,Quality of interactions with faculty
+QIstaff,Quality of interactions with student services staff
+QIadmin,Quality of interactions with other administrative staff and offices
+QIstudentR,Quality of interactions with students
+QIadvisorR,Quality of interactions with academic advisors
+QIfacultyR,Quality of interactions with faculty
+QIstaffR,Quality of interactions with student services staff
+QIadminR,Quality of interactions with other administrative staff and offices
+empstudy,Institutional emphasis: Spending significant amounts of time studying and on academic work
+SEacademic,Institutional emphasis: Providing support to help students succeed academically
+SElearnsup,"Institutional emphasis: Using learning support services (tutoring services, writing center, etc.)"
+SEdiverse,"Institutional emphasis: Encouraging contact among students from different backgrounds (social, racial/ethnic, religious, etc.)"
+SEsocial,Institutional emphasis: Providing opportunities to be involved socially
+SEwellness,"Institutional emphasis: Providing support for your overall well-being (recreation, health care, counseling, etc.)"
+SEnonacad,"Institutional emphasis: Helping you manage your non-academic responsibilities (work, family, etc.)"
+SEactivities,"Institutional emphasis: Attending campus activities and events (performing arts, athletic events, etc.)"
+SEevents,"Institutional emphasis: Attending events that address important social, economic, or political issues"
+tmprep,"Hours per week: Preparing for class (studying, reading, writing, doing homework or lab work, analyzing data, rehearsing, and other academic activities)"
+tmcocurr,"Hours per week: Participating in co-curricular activities (organizations, campus publications, student government, fraternity or sorority, intercollegiate or intramural sports, etc.)"
+tmworkon,Hours per week: Working for pay ON CAMPUS
+tmworkoff,Hours per week: Working for pay OFF CAMPUS
+tmservice,Hours per week: Doing community service or volunteer work
+tmrelax,"Hours per week: Relaxing and socializing (time with friends, video games, TV or videos, keeping up with friends online, etc.)"
+tmcare,"Hours per week: Providing care for dependents (children, parents, etc.)"
+tmcommute,"Hours per week: Commuting to campus (driving, walking, etc.)"
+tmprephrs,Estimated hours: tmprep recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+tmcocurrhrs,Estimated hours: tmcocurr recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+tmworkonhrs,Estimated hours: tmworkon recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+tmworkoffhrs,Estimated hours: tmworkoff recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+tmworkhrs,Estimated number of hrs working for pay recoded and summed by NSSE from tmworkonhrs and tmworkoffhrs using the response range midpoints and an estimate for unbounded options
+tmservicehrs,Estimated hours: tmservice recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+tmrelaxhrs,Estimated hours: tmrelax recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+tmcarehrs,Estimated hours: tmcare recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+tmcommutehrs,Estimated hours: tmcommute recoded by NSSE using the midpoints of response ranges and an estimate for unbounded options
+reading,"Of the time you spend preparing for class in a typical 7-day week, about how much is on ASSIGNED READING?"
+tmreadinghrs,Estimated hours: reading recoded by NSSE using tmprephrs and reading
+tmreadinghrscol,Collapsed recode of tmreadinghrs
+pgwrite,Perceived gains: Writing clearly and effectively
+pgspeak,Perceived gains: Speaking clearly and effectively
+pgthink,Perceived gains: Thinking critically and analytically
+pganalyze,Perceived gains: Analyzing numerical and statistical information
+pgwork,Perceived gains: Acquiring job- or work-related knowledge and skills
+pgothers,Perceived gains: Working effectively with others
+pgvalues,Perceived gains: Developing or clarifying a personal code of values and ethics
+pgdiverse,"Perceived gains: Understanding people of other backgrounds (economic, racial/ethnic, political, religious, nationality, etc.)"
+pgprobsolve,Perceived gains: Solving complex real-world problems
+pgcitizen,Perceived gains: Being an informed and active citizen
+evalexp,How would you evaluate your entire educational experience at this institution?
+sameinst,"If you could start over again, would you go to the SAME INSTITUTION you are now attending?"
+MAJnum,How many majors do you plan to complete? (Do not count minors.)
+MAJfirst,Major or first major
+MAJfirstcode,First major or expected major
+MAJfirstcol,Recoded write-in major variable MAJfirst into one of eleven related-major categories
+MAJFself,Flag for students self-selecting their major or first major from the major listing
+MAJsecond,Second major:
+MAJsecondcode,Second major
+MAJsecondcol,Recoded write-in major variable MAJsecond into one of eleven related-major categories
+MAJSself,Flag for students self-selecting their second major from the major listing
+class,Student reported: What is your class level/current year of study in university?
+fulltime,Student reported: Are you a full-time student?
+coursenum,How many courses are you taking for credit this current academic term?
+onlinenum,"Of these, how many are ENTIRELY ONLINE?"
+onlinecrscol,Collapsed recode of courses taken online
+grades,What have most of your grades been up to now at this institution?
+begincol,Did you begin college at this institution or elsewhere?
+attend_voc_ca,Also attended: Community college (vocational or technical courses not at university level)
+attend_com_ca,Also attended: Community college (university credit/transfer courses)
+attend_col_ca,Also attended: University other than this one
+attend_cegep_gen_ca,Also attended: CEGEP (general or pre-university program)
+attend_cegep_prof_ca,Also attended: CEGEP (professional or technical program)
+attend_private_ca,Also attended: Private training institution
+attend_none_ca,Also attended: None
+attend_other_ca,Also attended: Other
+edaspire,What is the highest level of education you ever expect to complete?
+parented_ca,What is the highest level of education completed by either of your parents (or those who raised you)?
+firstgen,First-Generation Status (neither parent or anyone who raised you holds a bachelor's degree)
+genderid,Student reported: What is your gender identity?
+genderid_txt,What is your gender identity?
+birthyear,Enter your year of birth
+age,Age recoded from variable birthyear
+agecat,Age Category
+internat_ca,What is your present citizenship status?
+re_white_ca,Student reported ethno-cultural information: White
+re_amind_ca,Student reported ethno-cultural information: North American Indian
+re_metis_ca,Student reported ethno-cultural information: Métis
+re_inuit_ca,Student reported ethno-cultural information: Inuit
+re_chin_ca,Student reported ethno-cultural information: Chinese
+re_s_asia_ca,"Student reported ethno-cultural information: South Asian (e.g., East Indian, Pakistani, Sri Lankan, etc.)"
+re_black_ca,Student reported ethno-cultural information: Black
+re_phil_ca,Student reported ethno-cultural information: Filipino
+re_latino_ca,Student reported ethno-cultural information: Latin American
+re_se_asia_ca,"Student reported ethno-cultural information: Southeast Asian (e.g., Cambodian, Indonesian, Laotian, Vietnamese, etc.)"
+re_arab_ca,"Student reported ethno-cultural information: Arab (e.g., Saudi, Egyptian, etc.)"
+re_w_asia_ca,"Student reported ethno-cultural information: West Asian (e.g., Afghan, Iranian, etc.)"
+re_japan_ca,Student reported ethno-cultural information: Japanese
+re_korea_ca,Student reported ethno-cultural information: Korean
+re_other_ca,Student reported ethno-cultural information: Other
+greek,Are you a member of a social fraternity or sorority?
+living_ca,Which of the following best describes where you are living while attending university?
+athlete,Are you a student-athlete on a team sponsored by your institution’s athletics department?
+disability,Have you been diagnosed with any disability or impairment?
+dis_sense,If yes: A sensory impairment (vision or hearing)
+dis_mobility,If yes: A mobility impairment
+dis_learning,"If yes: A learning disability (e.g., ADHD, dyslexia)"
+dis_mental,If yes: A mental health disorder
+dis_other,If yes: A disability or impairment not listed above
+disability_all,Students' disability identification based on disability and dis_sense through dis_other where each student is represented only once
+sexorient17,Which of the following best describes your sexual orientation?
+sexorient17_txt,Which of the following best describes your sexual orientation?
+IRsex,Institution-reported: Sex
+IRclass,Institution-reported: Class level
+IRftfy,Institution-reported: First-time first-year (FTFY) student
+IRenrollment,Institution-reported: Enrollment status
+IRreportme,Institution-reported: Sample for reporting
+studentID,Institution-reported: Student ID
+group1,First school-provided group identifier
+group2,Second school-provided group identifier
+group3,Third school-provided group identifier
+group4,Fourth school-provided group identifier
+group5,Fifth school-provided group identifier
+sample,Sample type
+unitid,Unitid
+surveyid,Unique survey number assigned by NSSE
+bsurvid,Identifies respondents who also completed BCSSE
+eligible,Is respondent eligible to take survey
+modecomp,Mode by which respondent completed survey
+mobiledevice,Device with which respondent answered survey
+os_firstLogin,Operating system with which respondent began survey
+os_lastLogin,Operating system with which respondent finished survey
+browser_firstLogin,Browser with which respondent began survey
+browser_lastLogin,Browser with which respondent finished survey
+logdate,Date survey returned (paper) or logged in (web)
+duration,Summation of every page submit in minutes
+Weight1,"Gender, FT/PT weight for FY,SR within an institution"
+Weight2,"Gender, FT/PT weight up to pop for FY,SR within an institution"
+HO,Higher-Order Learning
+RI,Reflective and Integrative Learning
+LS,Learning Strategies
+QR,Quantitative Reasoning
+CL,Collaborative Learning
+DD,Discussions with Diverse Others
+SF,Student-Faculty Interaction
+ET,Effective Teaching Practices
+QI,Quality of Interactions
+SE,Supportive Environment
